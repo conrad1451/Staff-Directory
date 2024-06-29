@@ -1,8 +1,24 @@
-
+const PORT = "myURL";
+ 
+//   // Source: https://gomakethings.com/how-to-use-the-fetch-api-with-vanilla-js/
+// fetch('https://jsonplaceholder.typicode.com/posts').then(function (response) {
+// 	// The API call was successful!
+// 	console.log('success!', response);
+// }).catch(function (err) {
+// 	// There was an error
+// 	console.warn('Something went wrong.', err);
+// });
 
 const getDataFromBackend = async () => {
-  const rest = await fetch(PORT + "/users");
-  const data = await rest.json();
+  const rest = await fetch(PORT + "/users")
+  .then(function (response) {
+	// The API call was successful!
+	console.log('success!', response);
+}).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
+   const data = await rest.json();
 
   return data;
 };
